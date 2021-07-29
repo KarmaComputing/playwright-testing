@@ -16,7 +16,8 @@ npm i -D @playwright/test
 ```
 npx playwright install
 ```
-## install dependecies for mobile and chrome 
+## install dependecies for mobile and chrome (if needed)
+![photo1627599310](https://user-images.githubusercontent.com/1718624/127575815-62dfc7e3-5e65-4000-a0dc-11d599322ba2.jpeg)
 ```
 sudo npx playwright install-deps 
 ```
@@ -34,7 +35,7 @@ npx playwright test --headed
 ```
 PWDEBUG=1 npx playwright test
 ```
-#Issues 
+# Issues 
 
 When running the first time you will see the following error: 
 ```
