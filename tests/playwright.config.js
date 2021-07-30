@@ -1,12 +1,15 @@
 // playwright.config.js
 // @ts-check
-const { devices } = require('@playwright/test');
+const { chromium, devices } = require('@playwright/test');
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   use: {
     headless: false,
     viewport: { width: 1280, height: 720 },
+    launchOptions: {
+      slowMo: 1000,
+    },
     video:"on",
     },
   projects: [
@@ -14,7 +17,6 @@ const config = {
       name: 'Desktop Chromium',
       use: {
         browserName: 'chromium',
-        // Test against Chrome Beta channel.
       },
     },
     // Test against mobile viewports.
