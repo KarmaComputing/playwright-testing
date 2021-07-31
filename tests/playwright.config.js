@@ -1,9 +1,11 @@
 // playwright.config.js
 // @ts-check
-const { chromium, devices } = require('@playwright/test');
+const { devices } = require('@playwright/test');
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
+  workers: 2,
+  retries: 2,
   use: {
     headless: false,
     viewport: { width: 1280, height: 720 },
