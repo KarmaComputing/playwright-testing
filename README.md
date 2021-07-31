@@ -1,3 +1,13 @@
+# Information about the repository. 
+This repository test the playright/test package.
+It have 3 tests included: 
+1. Go to https://footballclub.subscriby.shop/
+2. Go to https://herbivorehacker.subscriby.shop/
+3. before each test it will go to https://subscriptionwebsitebuilder.co.uk
+
+The test will save a screenshot and video in slowMotion. 
+The test will be run in browser mode and mobile mode in parallel. 
+
 # playwright-testing
 
 ## install venv 
@@ -26,10 +36,6 @@ sudo npx playwright install-deps
 ## running the test without a browser
 ```
 npx playwright test
-```
-## running the test with browser
-```
-npx playwright test --headed
 ```
 ## running the test with debugger
 ```
