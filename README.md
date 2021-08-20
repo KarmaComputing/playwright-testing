@@ -22,7 +22,7 @@ python3 -m venv venv
 ```
 npm i -D @playwright/test
 ```
-## install playwright browser library
+## install playwright browser library (downloads the web browsers)
 ```
 npx playwright install
 ```
