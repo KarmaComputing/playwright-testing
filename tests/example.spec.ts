@@ -21,6 +21,13 @@ test('homepage has title and links to intro page', async ({ page }) => {
   await expect(page).toHaveURL(/.*intro/);
 });
 
+test('app', async ({ page }) => {
+  await page.goto('/');
+  await page.getByText('Hello, World!').click();
+});
+
+/*
+
 test('google', async ({ page }) => {
   await page.goto('https://google.com/');
 });
@@ -48,3 +55,4 @@ test('apple', async ({ page }) => {
 test('merriam-webster', async ({ page }) => {
   await page.goto('https://merriam-webster.com');
 });
+*/
