@@ -14,7 +14,7 @@ jobs:
       with:
         node-version: 16
     - name: Use default settings
-      run: env.yaml.example env.yaml
+      run: mv env.yaml.example env.yaml
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
