@@ -23,7 +23,7 @@ jobs:
       id: playwright-cache
       with:
         path: |
-          ~/.cache/ms-playwright
+          ~/.cache/
         key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
     - name: Use default settings
       run: mv env.yaml.example env.yaml
