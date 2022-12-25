@@ -1,0 +1,24 @@
+{
+  "name": "playwright-testing",
+  "version": "1.0.0",
+  "description": "This repository test the playright/test package. It have 3 tests included:  1. Go to https://footballclub.subscriby.shop/ 2. Go to https://herbivorehacker.subscriby.shop/ 3. before each test it will go to https://subscriptionwebsitebuilder.co.uk",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarmaComputing/playwright-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarmaComputing/playwright-testing/issues"
+  },
+  "homepage": "https://github.com/KarmaComputing/playwright-testing#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.29.1"
+  },
+  "dependencies": {
+    "yaml-to-env": "^4.2.3"
+  }
+}
