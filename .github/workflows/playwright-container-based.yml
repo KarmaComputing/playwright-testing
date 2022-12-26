@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       playwright:
-        name: 'Playwright Tests'
+        name: 'Playwright Container Tests'
         runs-on: ubuntu-latest
         container:
           image: mcr.microsoft.com/playwright:v1.29.0-focal
