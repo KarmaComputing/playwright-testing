@@ -17,6 +17,7 @@ jobs:
       with:
         python-version: '3.11'
         cache: 'pip' # caching pip dependencies
+        shell: bash
     - uses: actions/setup-node@v3
       with:
         node-version: '18'
