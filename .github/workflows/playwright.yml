@@ -27,6 +27,8 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
       if: steps.playwright-cache.outputs.cache-hit != 'true'
+    - run: npx playwright install-deps
+      if: steps.playwright-cache.outputs.cache-hit == 'true'
     - uses: actions/setup-python@v4
       with:
         python-version: '3.11'
