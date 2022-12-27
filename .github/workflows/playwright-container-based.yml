@@ -21,7 +21,7 @@ jobs:
       run: docker image load --input ./ci/cache/docker/playwright-testing/playwright-testing.tar
 
     - name: Start container
-      run: docker run --rm -it ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest date 
+      run: docker run --rm ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest date 
 
         #    - name: Install python
         #      run: |
