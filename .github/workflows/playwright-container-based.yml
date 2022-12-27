@@ -14,7 +14,7 @@ jobs:
     - name: Update Playwright Image Cache if cache miss
       # Credit https://stackoverflow.com/a/73821429
       if: steps.cache-docker-playwright-test.outputs.cache-hit != 'true'
-      run: docker pull ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest && mkdir -p ci/cache/docker/playwright-testing && docker image save playwright-testing:latest --output ./ci/cache/docker/playwright-testing/playwright-testing.tar
+      run: docker pull ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest && mkdir -p ci/cache/docker/playwright-testing && docker image save ghcr.io/karmacomputing/playwright-testing/playwright-testing --output ./ci/cache/docker/playwright-testing/playwright-testing.tar
 
     - name: Use Playwright Image Cache if cache hit
       if: steps.cache-docker-playwright-test.outputs.cache-hit == 'true'
