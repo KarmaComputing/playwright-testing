@@ -15,7 +15,7 @@ jobs:
       # Build the Docker image
       - name: Build Docker image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$(echo ghcr.io/${{ github.repository }}/$IMAGE_NAME | tr '[:upper:]' '[:lower:]')
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
