@@ -110,7 +110,11 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-     command: 'cd /src/app && flask run',
+     // If running inside pipeline, then assume app is mounted to /src/app
+     // and run flask from /src/app directory.
+     // Otherwise assume developer is running playwright locally, and run from
+     // Local directory
+     command: '[ -d "/src/app" ] && cd /src/app && flask run || flask run',
      port: 5000,
   },
 };
