@@ -11,13 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Restore Playwright Image Cache if it exists
+      id: cache-docker-playwright-testing
+      uses: actions/cache@v3
+      with:
+        path: ci/cache/docker/playwright-testing
+        key: cache-docker-playwright-testing
     - name: Update Playwright Image Cache if cache miss
       # Credit https://stackoverflow.com/a/73821429
-      if: steps.cache-docker-playwright-test.outputs.cache-hit != 'true'
+      if: steps.cache-docker-playwright-testing.outputs.cache-hit != 'true'
       run: docker pull ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest && mkdir -p ci/cache/docker/playwright-testing && docker image save ghcr.io/karmacomputing/playwright-testing/playwright-testing --output ./ci/cache/docker/playwright-testing/playwright-testing.tar
 
     - name: Use Playwright Image Cache if cache hit
-      if: steps.cache-docker-playwright-test.outputs.cache-hit == 'true'
+      if: steps.cache-docker-playwright-testing.outputs.cache-hit == 'true'
       run: docker image load --input ./ci/cache/docker/playwright-testing/playwright-testing.tar
 
     - name: Start container
@@ -35,10 +41,4 @@ jobs:
         #    - name: Run your tests
         #      run: npx playwright test
         #
-        #    - name: Restore Playwright Image Cache if it exists
-        #      id: cache-docker-playwright-testing
-        #      uses: actions/cache@v3
-        #      with:
-        #        path: ci/cache/docker/mysql
-        #        key: cache-docker-playwright-testing
         #
