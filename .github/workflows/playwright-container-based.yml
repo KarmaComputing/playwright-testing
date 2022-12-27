@@ -28,17 +28,3 @@ jobs:
 
     - name: Start container
       run: time docker run --rm -v $PWD/tests:/ms-playwright-agent/tests -v $PWD/:/src/app ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest
-
-        #    - name: Install python
-        #      run: |
-        #        mv env.yaml.example env.yaml
-        #        apt-get update && apt-get install -y python python3-pip && pip3 install -r requirements.txt
-        #    - uses: actions/setup-node@v3
-        #      with:
-        #        node-version: '18'
-        #    - name: Install dependencies
-        #      run: npm ci
-        #    - name: Run your tests
-        #      run: npx playwright test
-        #
-        #
