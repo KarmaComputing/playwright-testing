@@ -9,18 +9,36 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.29.1-focal
     steps:
     - uses: actions/checkout@v3
-    - name: Install python
-      run: |
-        mv env.yaml.example env.yaml
-        apt-get update && apt-get install -y python python3-pip && pip3 install -r requirements.txt
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-    - name: Install dependencies
-      run: npm ci
-    - name: Run your tests
-      run: npx playwright test
+    - name: Update Playwright Image Cache if cache miss
+      # Credit https://stackoverflow.com/a/73821429
+      if: steps.cache-docker-playwright-test.outputs.cache-hit != 'true'
+      run: docker pull ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest && mkdir -p ci/cache/docker/playwright-testing && docker image save playwright-testing:latest --output ./ci/cache/docker/playwright-testing/playwright-testing.tar
+
+    - name: Use Playwright Image Cache if cache hit
+      if: steps.cache-docker-playwright-test.outputs.cache-hit == 'true'
+      run: docker image load --input ./ci/cache/docker/playwright-testing/playwright-testing.tar
+
+    - name: Start container
+      run: docker run --rm -it ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest date 
+
+        #    - name: Install python
+        #      run: |
+        #        mv env.yaml.example env.yaml
+        #        apt-get update && apt-get install -y python python3-pip && pip3 install -r requirements.txt
+        #    - uses: actions/setup-node@v3
+        #      with:
+        #        node-version: '18'
+        #    - name: Install dependencies
+        #      run: npm ci
+        #    - name: Run your tests
+        #      run: npx playwright test
+        #
+        #    - name: Restore Playwright Image Cache if it exists
+        #      id: cache-docker-playwright-testing
+        #      uses: actions/cache@v3
+        #      with:
+        #        path: ci/cache/docker/mysql
+        #        key: cache-docker-playwright-testing
+        #
