@@ -37,5 +37,5 @@ jobs:
       # Push the image to the registry
       - name: Push Docker image to GitHub Packages registry
         run: |
-          docker push $IMAGE_ID:$VERSION
+          docker push ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest
 
