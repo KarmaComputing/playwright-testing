@@ -13,8 +13,7 @@ import { devices } from '@playwright/test';
 //    'headless'
 //  ]
 //});
-
-console.log(process.env.headless);
+//console.log(process.env.headless);
 
 /**
  * See https://playwright.dev/docs/test-configuration.
