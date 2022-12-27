@@ -15,6 +15,9 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t playwright-test .
+          docker images
+          docker tag playwright-test:latest ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest
+          docker images
 
       # Authenticate with GitHub Packages registry
       - name: Authenticate with GitHub Packages registry
