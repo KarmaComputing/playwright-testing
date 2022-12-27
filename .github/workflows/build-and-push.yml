@@ -14,7 +14,7 @@ jobs:
       # Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t playwright-test
+          docker build -t playwright-test .
 
       # Authenticate with GitHub Packages registry
       - name: Authenticate with GitHub Packages registry

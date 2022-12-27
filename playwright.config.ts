@@ -5,14 +5,14 @@ import { devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import yamlToEnv from "yaml-to-env";
-
-yamlToEnv({
-  yamlPath: './env.yaml',
-  exposeVariables: [
-    'headless'
-  ]
-});
+//import yamlToEnv from "yaml-to-env";
+//
+//yamlToEnv({
+//  yamlPath: './env.yaml',
+//  exposeVariables: [
+//    'headless'
+//  ]
+//});
 
 console.log(process.env.headless);
 
@@ -50,7 +50,7 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     video: 'on',
-    headless: process.env.headless,
+    headless: process.env.headless ? true: true,
   },
 
   /* Configure projects for major browsers */
@@ -110,7 +110,7 @@ const config: PlaywrightTestConfig = {
 
   /* Run your local dev server before starting the tests */
   webServer: {
-     command: 'flask run',
+     command: 'cd /src/app && flask run',
      port: 5000,
   },
 };
