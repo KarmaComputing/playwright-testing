@@ -27,7 +27,7 @@ jobs:
       run: docker image load --input ./ci/cache/docker/playwright-testing/playwright-testing.tar
 
     - name: Start container
-      run: docker run --rm ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest date 
+      run: time docker run --rm -v $PWD/tests:/ms-playwright-agent/tests -v $PWD/:/src/app ghcr.io/karmacomputing/playwright-testing/playwright-testing:latest
 
         #    - name: Install python
         #      run: |
