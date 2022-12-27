@@ -10,13 +10,13 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.29.0-focal
+      image: mcr.microsoft.com/playwright:v1.29.1-focal
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-        cache: 'pip' # caching pip dependencies
+    - name: Install python
+      run: |
+        mv env.yaml.example env.yaml
+        apt-get update && apt-get install -y python python3-pip && pip3 install -r requirements.txt
     - uses: actions/setup-node@v3
       with:
         node-version: '18'
