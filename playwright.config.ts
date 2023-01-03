@@ -44,7 +44,7 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:5000',
+   // baseURL: 'http://localhost:5000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -108,14 +108,14 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  webServer: {
+ // webServer: {
      // If running inside pipeline, then assume app is mounted to /src/app
      // and run flask from /src/app directory.
      // Otherwise assume developer is running playwright locally, and run from
      // Local directory
-     command: '[ -d "/src/app" ] && cd /src/app && flask run || flask run',
-     port: 5000,
-  },
+ //    command: '[ -d "/src/app" ] && cd /src/app && flask run || flask run',
+ //    port: 5000,
+ // },
 };
 
 export default config;
